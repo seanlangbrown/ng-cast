@@ -1,12 +1,19 @@
 angular.module('video-player')
 
   .component('chat', {
+    
+
     controller: function($http) {
       this.url = 'http://parse.sfm6.hackreactor.com/chatterbox/classes/';
+
+      this.$onInit = function() {
+        this.room = 'fhfIpUgxgm8';
+        this.getMessages.call(this, this.getHandle);
+      },
       
       this.postHandle = (result) => {
         console.log('POST success');
-        console.log(result);
+        this.getMessages.call(this, this.getHandle);
       },
 
       this.makeMessage = function(text) {
@@ -67,23 +74,21 @@ angular.module('video-player')
         // this.room = '';
         var room = this.room !== '' ? '?where={"roomname":"' + this.room + '"}' : '';
         var params = {
-          data: 'order=-createdAt'
+          order: '-createdAt'
         };
       
         $http({
           url: this.url + 'messages' + room,
           method: 'GET',
-          // params: JSON.stringify(params),
+          params: params,
           headers: {
             'X-Parse-Application-Id': '2745f6eedad1770c6ebaf03f8a97cf0cc2f66706',
             'X-Parse-REST-API-Key': '4f44a6835e581124936858b658e8ea99e278d371'
           }
         }).then(function(data) {
           callback(data.data.results);
-          console.log(data.data.results);
         });
       };
-
       setInterval(function() { this.getMessages(this.getHandle); }.bind(this), 5000);
     },
 
