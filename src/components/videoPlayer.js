@@ -6,8 +6,8 @@ angular.module('video-player')
     },
 
     controller: function() { 
-      console.log(this);
-      this.video = [];
+      console.log(this.video);
+      this.video = {};
       console.log(this.video);
     },
 
