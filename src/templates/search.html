@@ -1,5 +1,5 @@
 <div class="search-bar form-inline">
-  <input class="form-control" type="text" ng-model="$ctrl.query" />
+  <input class="form-control" type="text" ng-model="$ctrl.query" ng-keyup="$ctrl.search($event)" ng-model-options="{debounce: 500}"/>
   <button class="btn" ng-click="$ctrl.search()">
     <span class="glyphicon glyphicon-search"></span>
   </button>

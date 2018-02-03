@@ -6,10 +6,11 @@ angular.module('video-player')
     },
     
     controller: function() {
-      this.search = () => {
-        console.log(this.query);
+      this.search = (event) => {
         this.result(this.query);
-        this.query = '';
+        if (!event || event.key === 'Enter') {
+          this.query = '';
+        }
       };
     },
     

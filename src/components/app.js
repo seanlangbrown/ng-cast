@@ -3,6 +3,7 @@ angular.module('video-player')
   .component('app', {
 
     controller: function appController(youTube) {
+      
       this.videos = window.exampleVideoData;
       this.currentVideo = this.videos[0];
       this.videos.forEach(function(video) {
@@ -22,9 +23,10 @@ angular.module('video-player')
       };
 
       this.searchResults = (query) => {
-        console.log(query);
         youTube.searchYoutube(query, this.results);
       };
+      
+      this.searchResults('whales');
     },
 
     templateUrl: 'src/templates/app.html'
