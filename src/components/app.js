@@ -4,11 +4,11 @@ angular.module('video-player')
 
     controller: function appController(youTube) {
       
-      this.videos = window.exampleVideoData;
-      this.currentVideo = this.videos[0];
-      this.videos.forEach(function(video) {
-        video.url = 'https://www.youtube.com/embed/' + video.id.videoId;
-      });
+      this.videos = []; //window.exampleVideoData;
+      this.currentVideo = {};
+      //this.videos.forEach(function(video) {
+      //  video.url = 'https://www.youtube.com/embed/' + video.id.videoId;
+      //});
 
       this.selectVideo = (video) => {
         this.currentVideo = video;

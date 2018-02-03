@@ -1,0 +1,8 @@
+<div class="chat">
+  <div class='send-message' >
+    <input type="text" class='form-control' placeholder="post a message ..." ng-model="$ctrl.messageBar" ng-keyup="$ctrl.keyUpHandler($event)"/>
+    <button class="send-button" ng-click="$ctrl.sendHandler()">Send</button>
+  </div>
+  <chat-feed messages="$ctrl.messages" />
+
+</div>

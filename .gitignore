@@ -6,3 +6,4 @@ node_modules/
 
 ## API keys ##
 src/config/youtube.js
+src/config/chat.js
